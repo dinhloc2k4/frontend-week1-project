@@ -10,7 +10,7 @@ import TodoAppContext from "./tasks/Task3/TodoAppContext";
 import Home from "./tasks/Task4/Home";
 import TodoPage from "./tasks/Task4/TodoPage";
 import TodoDetail from "./tasks/Task4/TodoDetail";
-
+import TodoAPI from "./tasks/Task5_Axios/TodoAPI";
 function App() {
   return (
     <BrowserRouter>
@@ -24,6 +24,9 @@ function App() {
           <Link to="/todos" style={{ marginRight: "10px" }}>
             Todos
           </Link>
+          <Link to="/axios" style={{ marginRight: "10px" }}>
+            Axios Demo
+          </Link>
           {/* Example direct link to a todo detail */}
           <Link to="/todos/1">Detail (example)</Link>
         </nav>
@@ -32,10 +35,8 @@ function App() {
           <Route path="/" element={<Home />} />
           {/* NOTE: include trailing * to allow nested routes inside TodoPage */}
           <Route path="/todos/*" element={<TodoPage />} />
-
-          {/* If you want a standalone detail route (not nested),
-              you can keep a route like below. But since TodoPage already
-              handles nested /todos/:id, this is optional. */}
+          {/* Task 5 route (Axios demo) */}
+          <Route path="/axios" element={<TodoAPI />} />
           <Route path="/detail/:id" element={<TodoDetail />} />
 
           <Route path="*" element={<p>404 — Page not found</p>} />
